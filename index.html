@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+     <link rel="icon" type="image/png"href="https://www.google.com/s2/u/0/favicons?domain=css-tricks.com"><!--favicon --> 
+    <title>template</title>
+</head>
+<body >
+    
+    <div class="video-overplay">
+        
+       
+        <div class="container"  >
+            <div class="input" >
+            <div class="ccd">
+            <h1 id="ccd"> Custom Count Down:</h1>
+        </div>
+            <form class="form" id="countdown" >
+                   
+            <div id="title">  
+            <label for="title" class="labeltitle">Title:</label>     
+            <input type="text" class="title" placeholder="Counting Down To What?">
+             </div>
+                        
+            
+             <div id="date">
+            <label for="datepicker" class="labeldatepicker">Select a Date:</label>    
+            <input type="date" class="datepicker">
+             </div>
+
+            <div id="button">   
+            <button type="submit" class="button" >Submit</button>
+            </div>
+
+            </form>
+            </div>
+            <div class="timelapes" hidden>
+                <h1 class="countdown-title ccd">count down title</h1>
+                <div class="hms">
+                <ul class="ulflex" >
+                    <li ><span>   </span> Days </li>
+                    <li ><span>   </span> Hours </li>
+                    <li ><span>    </span> Minutes </li>
+                    <li ><span>    </span> Seconds </li>
+                </ul>
+                </div>
+                <div class="countdown-button ">
+                <button class="button reset-button">Reset</button>
+            </div>
+            </div>
+            <div class="complete" hidden>
+                <h1 class="complete-title ccd">Countdown Complete!</h1>
+                <h1  class="complete-info ccd">Countdown Finished On:</h1>
+                <h1 class="ccd complete-info-date">05-05-2024</h1> 
+                <div class="countdown-button ">
+                <button class="complete-button  button" >New Countdown</button>
+                </div>
+            </div>
+        </div>
+        <div class="missing_title danger" hidden >
+            <p><strong>Warning:</strong>Missing title </p>
+          </div>
+          <div class="missing_date danger" hidden>
+            <p><strong>Warning:</strong>Missing date selection </p>
+          </div>
+    
+    <video  class="vedio-background" loop muted autoplay>
+        
+        <source src="hourglass.mp4"></source>
+        
+    </video>
+</div>
+ <script src="script.js"></script>
+ <!-- <i class="fa-solid fa-face-smile"></i> -->
+</body>
+</html>
