@@ -14,11 +14,13 @@ const complete=document.getElementsByClassName('complete')[0];
 const complete_info=document.getElementsByClassName('complete-info')[0];
 const complete_info_date=document.getElementsByClassName('complete-info-date')[0];
 const complete_button=document.getElementsByClassName('complete-button')[0];
-//using Date function and limiting date chossen to be only after today.
+
 countdownvalue= Date;
 var days,hours,minutes,seconds;
 var eventname,eventdate;
 var countdownactive;
+var savedcountdown;
+//using Date function and limiting date chossen to be only after today.
 let time= new Date();
 const timearray= time.toISOString().split("T");
 // console.log(timearray);
@@ -102,6 +104,11 @@ function updatecountdown(e){
     eventdate=e.srcElement[1].value;
     countdownvalue = new Date(e.srcElement[1].value).getTime(); //.getTime() calculates the millisecond since jan 1, 1970 upto this date. 
     countdown_title.innerHTML=e.srcElement[0].value;
+    savedcountdown={
+        title:eventname,
+        date:eventdate,
+    }
+    localStorage.setItem('countdown',JSON.stringify(savedcountdown));
     updateDOM();
         }
 }
@@ -112,10 +119,21 @@ function reset(){
     title.innerHTML=' ';
     datepicker.innerHTML=' ';
     clearInterval(countdownactive);
+    localStorage.removeItem('countdown');
 }
-
+function restorepreviouscountdown(){
+    if(localStorage.getItem('countdown')){
+        inputsection.hidden=true;
+        timelapes.hidden=false;
+        savedcountdown=JSON.parse(localStorage.getItem('countdown'));
+        eventname=savedcountdown.title;
+        eventdate=savedcountdown.date;
+        countdownvalue = new Date( eventdate).getTime();
+        updateDOM();
+    }
+}
 inputform.addEventListener("submit",updatecountdown);
 button_reset.addEventListener('click',reset);
 complete_button.addEventListener('click',reset);
-
+restorepreviouscountdown();
 
